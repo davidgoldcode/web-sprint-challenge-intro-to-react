@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Character from './components/Character'
+import Details from './components/Details'
 import styled from 'styled-components';
 import './App.css';
 import { BASE_URL, API_KEY } from './constants';
@@ -9,6 +10,7 @@ const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
   const [dataObj, setDataObj] = useState([])
+  const [personDetails, setPersonDetails] = useState(null)
 
   useEffect(() => {
     axios.get(`${BASE_URL}${API_KEY}`) // to update
@@ -24,9 +26,8 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      {
-        dataObj.map(function(item) {
-          return <Character name={item.name}/>
+      { dataObj.map(function(item) { 
+         return <Character props={item} key={item.name}/> 
         })
       }
     </div>
