@@ -10,10 +10,9 @@ const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
   const [dataObj, setDataObj] = useState([])
-  const [personDetails, setPersonDetails] = useState(null)
 
   useEffect(() => {
-    axios.get(`${BASE_URL}${API_KEY}`) // to update
+    axios.get(`${BASE_URL}${API_KEY}`) 
       .then(info => setDataObj(info.data.results))
       .catch(err => console.log(err, 'ERROR'))
   }, [])

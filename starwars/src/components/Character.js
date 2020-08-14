@@ -8,12 +8,17 @@ const StyledName = styled.div`
     background-color: ${props => props.theme.backgroundColor};
     width: ${props => props.theme.width};
     margin: ${props => props.theme.margin};
+
+    &:hover {
+    background-color: gray;
+    }
 `
 
 const Character = ({props}) => {
     const [personDetails, setPersonDetails] = useState(null)
     
     const openDetails = details => {
+        console.log(details)
         setPersonDetails(details)
     }
 
@@ -28,5 +33,3 @@ const Character = ({props}) => {
 }
 
 export default Character
-
-// onClick={(evt) => openDetails(props.name)}
